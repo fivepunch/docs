@@ -1,0 +1,17 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+.main {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.hero {
+  height: 100%;
+  width: 100%;
+
+  background: url("/img/pattern.png");
+  overflow: hidden;
+}
