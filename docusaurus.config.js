@@ -16,6 +16,7 @@ const config = {
   favicon: "img/favicon.ico",
   organizationName: "Fivepunch", // Usually your GitHub org/user name.
   projectName: "docs", // Usually your repo name.
+  trailingSlash: false,
   i18n: {
     defaultLocale: "en",
     locales: ["en", "pt-BR"],
@@ -50,6 +51,8 @@ const config = {
         path: "resources/fivem-appearance",
         routeBasePath: "resources/fivem-appearance",
         sidebarPath: require.resolve("./sidebars.js"),
+        editUrl: "https://github.com/fivepunch/docs/tree/main/",
+        editLocalizedFiles: true,
       },
     ],
   ],

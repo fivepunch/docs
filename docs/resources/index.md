@@ -6,4 +6,4 @@ sidebar_position: 1
 
 List of **Fivepunch** resources covered by this documentation.
 
-- [fivem-appearance](./fivem-appearance)
+- [fivem-appearance](/resources/fivem-appearance)
