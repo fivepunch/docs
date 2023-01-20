@@ -2,42 +2,37 @@
 // Note: type annotations allow type checking and IDEs autocompletion
 
 const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+const darkCodeTheme = require("./src/utils/prismDarkTheme");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Fivepunch docs",
-  tagline: "Dinosaurs are cool",
-  url: "https://your-docusaurus-test-site.com",
+  title: "Fivepunch",
+  tagline:
+    "An independent game studio that delivers and enhances entertainment experiences.",
+  url: "https://docs.fivepunch.io",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
   organizationName: "Fivepunch", // Usually your GitHub org/user name.
   projectName: "docs", // Usually your repo name.
-
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: "en",
     locales: ["en", "pt-BR"],
   },
-
   presets: [
     [
       "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          path: "docs",
+          routeBasePath: "/",
           sidebarPath: require.resolve("./sidebars.js"),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+          editUrl: "https://github.com/fivepunch/docs/tree/main/",
+          editLocalizedFiles: true,
+          lastVersion: "current",
+          onlyIncludeVersions: ["current"],
         },
         blog: false,
         theme: {
@@ -46,7 +41,18 @@ const config = {
       }),
     ],
   ],
-
+  plugins: [
+    [
+      "@docusaurus/plugin-content-docs",
+      /** @type {import('@docusaurus/plugin-content-docs').Options} */
+      {
+        id: "fivem-appearance",
+        path: "resources/fivem-appearance",
+        routeBasePath: "resources/fivem-appearance",
+        sidebarPath: require.resolve("./sidebars.js"),
+      },
+    ],
+  ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -60,9 +66,9 @@ const config = {
         items: [
           {
             type: "doc",
-            docId: "intro",
+            docId: "resources/index",
             position: "left",
-            label: "Tutorial",
+            label: "Resources",
           },
           {
             href: "https://github.com/fivepunch",
@@ -81,8 +87,8 @@ const config = {
             title: "Docs",
             items: [
               {
-                label: "Tutorial",
-                to: "/docs/intro",
+                label: "fivem-appearance",
+                to: "/resources/fivem-appearance",
               },
             ],
           },
@@ -96,6 +102,10 @@ const config = {
               {
                 label: "Twitter",
                 href: "http://twitter.fivepunch.io",
+              },
+              {
+                label: "Cfx",
+                href: "https://forum.cfx.re/u/fivepunch/",
               },
             ],
           },
@@ -113,9 +123,11 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Fivepunch. Built with Docusaurus.`,
+        // Based on https://www.electronjs.org/ footer copyright notice
+        copyright: `Copyright © ${new Date().getFullYear()} Fivepunch and contributors.`,
       },
       prism: {
+        additionalLanguages: ["lua"],
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },

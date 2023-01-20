@@ -1,0 +1,14 @@
+{
+  "title": {
+    "message": "Fivepunch",
+    "description": "The title in the navbar"
+  },
+  "item.label.Resources": {
+    "message": "Resources",
+    "description": "Navbar item with label Resources"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  }
+}
