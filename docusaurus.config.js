@@ -129,6 +129,15 @@ const config = {
         // Based on https://www.electronjs.org/ footer copyright notice
         copyright: `Copyright © ${new Date().getFullYear()} Fivepunch and contributors.`,
       },
+      image: "img/banner.png",
+      metadata: [
+        { name: "twitter:site", content: "@fvpnch" },
+        { name: "twitter:card", content: "summary_large_image" },
+        {
+          name: "twitter:image",
+          content: "https://docs.fivepunch.io/img/banner.png",
+        },
+      ],
       prism: {
         additionalLanguages: ["lua"],
         theme: lightCodeTheme,

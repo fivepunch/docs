@@ -5,11 +5,10 @@ import Layout from "@theme/Layout";
 import styles from "./index.module.css";
 
 export default function Home(): JSX.Element {
-  const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
+      title={`Documentation`}
+      description="Official documentation for Fivepunch projects."
     >
       <section className={styles.main}>
         <div className={styles.hero} />
