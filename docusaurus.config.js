@@ -42,20 +42,7 @@ const config = {
       }),
     ],
   ],
-  plugins: [
-    [
-      "@docusaurus/plugin-content-docs",
-      /** @type {import('@docusaurus/plugin-content-docs').Options} */
-      {
-        id: "fivem-appearance",
-        path: "resources/fivem-appearance",
-        routeBasePath: "resources/fivem-appearance",
-        sidebarPath: require.resolve("./sidebars.js"),
-        editUrl: "https://github.com/fivepunch/docs/tree/main/",
-        editLocalizedFiles: true,
-      },
-    ],
-  ],
+  plugins: [],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -91,7 +78,11 @@ const config = {
             items: [
               {
                 label: "fivem-appearance",
-                to: "/resources/fivem-appearance",
+                to: "resources/fivem-appearance",
+              },
+              {
+                label: "fivepunch-character-selection",
+                to: "resources/fivepunch-character-selection",
               },
             ],
           },
