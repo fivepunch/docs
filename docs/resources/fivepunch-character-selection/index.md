@@ -3,9 +3,15 @@ import TabItem from '@theme/TabItem';
 
 # fivepunch-character-selection
 
-A lore friendly character selection script for FiveM. Embrace the spirit of Los Santos, @#$% those cute apartments.
+---
 
-![Character selection](fivepunch-character-selection-banner.png)
+A lore friendly character selection script for FiveM. 
+
+**Embrace the spirit of Los Santos, @#$% those cute apartments.**
+
+[![Character selection](fivepunch-character-selection-banner.png)](https://streamable.com/xp5vhe)
+
+---
 
 ## Installation
 
@@ -26,13 +32,22 @@ Alternatively, you can go to https://keymaster.fivem.net/asset-grants and downlo
   ```
 3. Start developing!
 
-## Framework integration
+---
+
+## Integrating
 
 By design, we don't bake framework support in our scripts. All of our creations are standalone, but they can be easily integrated with the framework of your preference.
 
-Here are some examples of how to integrate this script to some of the more common frameworks in the FiveM community.
+Here are some examples of how to integrate this script to some of the most common frameworks in the FiveM community.
 
 <Tabs>
+
+<TabItem value="standalone" label="Standalone">
+
+You can check a complete example of the fivepunch-character-selection resource using instructional buttons [at Fivepunch's Github](https://github.com/fivepunch/fivepunch-character-selection-example).
+
+</TabItem>
+
 <TabItem value="qb" label="QB">
 
 ```lua title="qb-multicharacter/client/main.lua"
@@ -119,6 +134,7 @@ end)
 <TabItem value="esx" label="ESX">
 
 ```lua
+-- To-do
 function helloWorld()
   print('Hello, ESX!')
 end
@@ -128,6 +144,7 @@ end
 <TabItem value="vrp" label="vRP">
 
 ```lua
+-- To-do
 function helloWorld()
   print('Hello, vRP!')
 end
@@ -135,6 +152,8 @@ end
 
 </TabItem>
 </Tabs>
+
+---
 
 ## Client exports
 
@@ -238,7 +257,7 @@ local parameters = {
 #### Usage
 
 ```lua
-  ---@param parameters An ExitParameters table.
+  ---@param parameters An ExitParameters table (optional)
   exports['fivepunch-character-selection']:setOutOfCharacterSelection(parameters)
 ```
 
@@ -295,8 +314,9 @@ Sets the callback that will be executed when a character is selected.
   end)
 ```
 
-## Common errors
+---
 
+## Common errors
 ### Error parsing script / Failed to load script
 
 Your server artifacts are likely outdated. Update your server to version 5181 or above.
