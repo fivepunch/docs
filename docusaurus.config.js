@@ -81,8 +81,8 @@ const config = {
                 to: "resources/fivem-appearance",
               },
               {
-                label: "fivepunch-character-selection",
-                to: "resources/fivepunch-character-selection",
+                label: "fivepunch-multicharacter",
+                to: "resources/fivepunch-multicharacter",
               },
             ],
           },
