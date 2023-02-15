@@ -4,7 +4,6 @@
  */
 .main {
   display: flex;
-  align-items: center;
   width: 100%;
 }
 
@@ -14,4 +13,21 @@
 
   background: url("/img/pattern.png");
   overflow: hidden;
+
+  padding-top: 12rem;
+  padding-bottom: 12rem;
+}
+
+@media screen and (min-width: 640px) {
+  .hero {
+    padding-top: 14rem;
+    padding-bottom: 14rem;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .hero {
+    padding-top: 16rem;
+    padding-bottom: 16rem;
+  }
 }
