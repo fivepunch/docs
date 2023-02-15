@@ -7,4 +7,4 @@ sidebar_position: 1
 List of **Fivepunch** resources covered by this documentation.
 
 - [fivem-appearance](/resources/fivem-appearance/)
-- [fivepunch-character-selection](/resources/fivepunch-character-selection/)
+- [fivepunch-multicharacter](/resources/fivepunch-multicharacter/)
