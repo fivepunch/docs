@@ -5,7 +5,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-**A tactical team-based shooter for Fivem**
+**A tactical team-based shooter for FiveM**
 
 ![Cops and Robberts](fivepunch-cops-and-robbers-banner.png)
 
@@ -33,7 +33,7 @@ ensure fivepunch-cops-and-robbers
 
 ## Configuration
 
-You can modify all configurations about minigame and matchmaking in file `config.lua`. But don't worry, you can safely use all default options.
+All the configurations for the mini-game and the matchmaking are in the file config.lua. Tweak it to best suit your needs.
 
 ```lua
 LOCALE = {
@@ -44,10 +44,10 @@ GAME_CONFIG = {
   MAX_ROUNDS = 8, -- Maximum rounds of each match
   TIME_TO_ROUND_END_IN_MS = 1 * 60 * 1000, -- Time for the round to end giving victory to robbers
 
-  TIME_TO_DESTROY_GAME = 30 * 1000, -- Timeout to make a cleanup after match finished
+  TIME_TO_DESTROY_GAME = 30 * 1000, -- Timeout to clean up a game after it finishes
 
-  DEFAULT_TIME_TO_HIDE_NOTIFICATIONS_IN_MS = 10 * 1000, -- Default time to hide notification
-  TIME_WAITED_TO_START_SPECTATING_IN_MS = 5 * 1000, -- Time after dead to start spectating teammate
+  DEFAULT_TIME_TO_HIDE_NOTIFICATIONS_IN_MS = 10 * 1000, -- Default time to hide notifications
+  TIME_WAITED_TO_START_SPECTATING_IN_MS = 5 * 1000, -- Time after death to start spectating a teammate
 
   TEAM_COLORS = {
     COPS = "#39608b",
@@ -56,18 +56,18 @@ GAME_CONFIG = {
 }
 
 MATCHMAKING_CONFIG = {
-  TIME_TO_START_ROUND_IN_MS = 15 * 1000, -- Time to first round start
-  TIMEOUT_TO_START_MATCH_IN_MS = 15 * 1000, -- Timeout after create a match to start first round
+  TIME_TO_START_ROUND_IN_MS = 15 * 1000, -- Time to start the first round
+  TIMEOUT_TO_START_MATCH_IN_MS = 15 * 1000, -- Timeout to start the first round after creating a match
 
-  MAX_ITEMS_PER_PAGE = 20 -- Maximum rooms per page when request all rooms
+  MAX_ITEMS_PER_PAGE = 20 -- Maximum items per page in lobby pagination
 }
 
-BUCKET_CONFIG = { -- Configuration related to Fivem routing bucket
+BUCKET_CONFIG = { -- Configuration related to FiveM routing bucket
   POPULATION_ENABLED = false,
   LOCKDOWN_MODE = 'strict'
 }
 
-INPUT_CONFIG = { -- Configuraton related to Fivem key mapping
+INPUT_CONFIG = { -- Configuration related to FiveM key mapping
   SCOREBOARD = {
       KEY = "tab", -- Default key
       MAPPER = "keyboard", -- Default mapper (optional)
@@ -103,7 +103,7 @@ Here are some examples of how to integrate this script to some of the most commo
 
 <TabItem value="standalone" label="Standalone">
 
-This resource is default standalone, you can easy download and install.
+This resource is standalone by default, so you can safely download it and put it on your server.
 
 </TabItem>
 
@@ -111,7 +111,7 @@ This resource is default standalone, you can easy download and install.
 
 This resource is standalone, but to make the better compatibility in qb-core need some changes in others resource, some like remove default HUD, inventory, health system and others stuffs when playing.
 
-This compatibility will be written soon.
+QB support is still a work in progress. You can stay tuned to Fivepunch channels to know when it's out.
 
 </TabItem>
 
@@ -119,7 +119,7 @@ This compatibility will be written soon.
 
 This resource is standalone, but to make the better compatibility in esx need some changes in others resource like HUD, inventory, health system and others stuffs when playing.
 
-This compatibility will be written soon.
+ESX support is still a work in progress. You can stay tuned to Fivepunch channels to know when it's out.
 
 </TabItem>
 
@@ -129,11 +129,11 @@ This compatibility will be written soon.
 
 ## How to add a new Map
 
-1. Create a json file inside `data/maps` folder, example `data/maps/shop_02.json`.
+1. Create a JSON file inside the `data/maps` folder, for example, `data/maps/shop_02.json`.
 
-2. Start editing your map following [`Map structure`](#map-file-structure).
+2. Start editing your map following the [`Map structure`](#map-file-structure).
 
-3. Add your map to be included in `fxmanifest.lua` on `include_maps` section.
+3. Include your map in the `fxmanifest.lua`, in the `include_maps` section.
 
 ```lua
 include_maps {
@@ -212,7 +212,7 @@ include_maps {
 
 ## How to add a new Map Type
 
-Map types are used for players filter maps in matchmaking system, players can select one map type and according this type find a random map for your match.
+Map types are used for filtering maps in the matchmaking system. Players can select an option and find a random map for their match.
 
 1. Go to `data/maps/` and open `types.json`.
 
@@ -227,9 +227,9 @@ Map types are used for players filter maps in matchmaking system, players can se
 
 ---
 
-## How to add a new Weapon
+## How to add new Weapons
 
-You can add new weapon to be used in match.
+You can add news weapons to the game.
 
 1. Add weapon icon inside folder `data/weapons/icons`, example: `data/weapons/icons/weapon_dagger.png`
 
