@@ -5,7 +5,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-A lore friendly multi character script for FiveM. 
+A lore friendly multi character script for FiveM.
 
 **Embrace the spirit of Los Santos, @#$% those cute apartments.**
 
@@ -27,9 +27,10 @@ Alternatively, you can go to https://keymaster.fivem.net/asset-grants and downlo
 
 2. Add the following to your `server.cfg` to start the resource. Remember to start the character selection resource before the resource where you will consume it's exports.
 
-  ```cfg
-  ensure fivepunch-multicharacter
-  ```
+```cfg
+ensure fivepunch-multicharacter
+```
+
 3. Start developing!
 
 ---
@@ -161,9 +162,10 @@ end
 
 Sets the player into the character selection.
 
-#### Parameters 
+#### Parameters
+
 ```lua title="CharacterData"
-local character = { 
+local character = {
   identifier = 1, -- A primitive value
   name = 'Bad Snaily', -- The string that will be displayed in the mugshot board
   model = 'mp_m_freemode_01' -- The character ped model
@@ -176,12 +178,23 @@ local parameters = {
   page = 0, -- The starting page of charaters that will be displayed. Max of 4 characters per page
 }
 ```
+
 #### Usage
 
 ```lua
   ---@param characters A table of CharacterData
   ---@param parameters An EnterParameters table (optional)
   exports['fivepunch-multicharacter']:setIntoCharacterSelection(characters, parameters)
+```
+
+### `setIntoCharacterCreation()`
+
+Sets the player into the character creation.
+
+#### Usage
+
+```lua
+  exports['fivepunch-multicharacter']:setIntoCharacterCreation()
 ```
 
 ### `nextPage()`
@@ -216,7 +229,7 @@ Starts selecting a character using the mouse as input.
 
 Stops selecting and makes the character ped play a flip the bird animation while leaving the line up room.
 
-#### Parameters 
+#### Parameters
 
 `Character` [Character](#character)
 
@@ -247,13 +260,14 @@ Removes the specified character from the selection. No animations, just deletes 
 
 Sets the player out of the multicharacter scene (creation or selection)
 
-#### Parameters 
+#### Parameters
 
 ```lua title="ExitParameters (optional)"
 local parameters = {
   fadeIn = true, -- If false, it will not fade in the screen after the exiting transition
 }
 ```
+
 #### Usage
 
 ```lua
@@ -265,18 +279,19 @@ local parameters = {
 
 :::caution
 
-As of **v1.1.0**, this export is deprecated. Use [`setOutOfMulticharacter`](#setOutOfMulticharacter()) instead.
+As of **v1.1.0**, this export is deprecated. Use [`setOutOfMulticharacter`](#setoutofmulticharacter) instead.
 :::
 
-Does the same as [`setOutOfMulticharacter`](#setOutOfMulticharacter()). This is just a compatibility layer.
+Does the same as [`setOutOfMulticharacter`](#setoutofmulticharacter). This is just a compatibility layer.
 
-#### Parameters 
+#### Parameters
 
 ```lua title="ExitParameters (optional)"
 local parameters = {
   fadeIn = true, -- If false, it will not fade in the screen after the exiting transition
 }
 ```
+
 #### Usage
 
 ```lua
@@ -289,6 +304,7 @@ local parameters = {
 A class representing the character inside the selection
 
 #### Properties
+
 - `identifier` The same type as provided in the CharacterData in [setIntoCharacterSelection](#setIntoCharacterSelection)
 - `name` String
 - `model` String or Hash
@@ -298,7 +314,9 @@ A class representing the character inside the selection
 ### `MugshotBoard`
 
 #### Properties
+
 A class representing the mugshotBoard of each character. You probably shouldn't interact with this.
+
 - `boardProp` Number (EntityId)
 - `textProp` Number (EntityId)
 - `scaleform` Number (ScaleformId)
@@ -340,6 +358,7 @@ Sets the callback that will be executed when a character is selected.
 ---
 
 ## Common errors
+
 ### Error parsing script / Failed to load script
 
 Your server artifacts are likely outdated. Update your server to version 5181 or above.
