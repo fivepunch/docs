@@ -37,122 +37,13 @@ ensure fivepunch-multicharacter
 
 ## Integrating
 
+[Check our **open-source** example resource](https://github.com/fivepunch/gtao-multicharacter), to see how to integrate this script with your framework of preference.
+
+The example resource is also a drag-and-drop resource, so you can have a smooth experience while using the **fivepunch-multicharacter**.
+
 By design, we don't bake framework support in our scripts. All of our creations are standalone, but they can be easily integrated with the framework of your preference.
 
-Here are some examples of how to integrate this script to some of the most common frameworks in the FiveM community.
-
-<Tabs>
-
-<TabItem value="standalone" label="Standalone">
-
-You can check a complete example of the fivepunch-multicharacter resource using instructional buttons [at Fivepunch's Github](https://github.com/fivepunch/fivepunch-multicharacter-example).
-
-</TabItem>
-
-<TabItem value="qb" label="QB">
-
-```lua title="qb-multicharacter/client/main.lua"
-local QBCore = exports['qb-core']:GetCoreObject()
-local Multicharacter = exports['fivepunch-multicharacter']
-
-local cachedCharacters = {}
-
-function enterCharacterSelection()
-    local p = promise.new()
-
-    QBCore.Functions.TriggerCallback("qb-multicharacter:server:setupCharacters", function(characters)
-        for i = 1, #characters do
-            local character = characters[i]
-
-            QBCore.Functions.TriggerCallback('qb-multicharacter:server:getSkin', function(model, data)
-                character.model = model ~= nil and tonumber(model) or 'mp_m_freemode_01'
-                character.clothing = json.decode(data)
-
-                table.insert(cachedCharacters, character)
-
-                if i == #characters then
-                    p:resolve()
-                end
-            end, character.citizenid)
-        end
-    end)
-
-    Citizen.Await(p)
-
-    local characters = {}
-
-    for k, character in pairs(cachedCharacters) do
-        table.insert(characters, {
-            identifier = character.citizenid,
-            name = character.name,
-            model = character.model,
-        })
-    end
-
-    Multicharacter:onCharacterSpawn(function(character)
-        for k, cached in pairs(cachedCharacters) do
-            if cached.identifier == character.identifier then
-                TriggerEvent('qb-clothing:client:loadPlayerClothing', cached.clothing, character.ped)
-            end
-        end
-    end)
-
-    Multicharacter:onCharacterSelect(function(character)
-        Multicharacter:flipTheBird(character, function()
-            Multicharacter:deleteCharacter(character)
-            Multicharacter:setOutOfMulticharacter()
-
-            for k, cached in pairs(cachedCharacters) do
-                if character.identifier == cached.citizenid then
-                    TriggerServerEvent('qb-multicharacter:server:loadUserData', cached)
-                end
-            end
-
-            cachedCharacters = {}
-        end)
-    end)
-
-    Multicharacter:setIntoCharacterSelection(characters)
-end
-
-RegisterCommand('exit', function()
-    Multicharacter:setOutOfMulticharacter()
-
-    cachedCharacters = {}
-end, false)
-
-CreateThread(function()
-    while not NetworkIsSessionStarted() do
-      Wait(0)
-    end
-
-    enterCharacterSelection()
-end)
-
-```
-
-</TabItem>
-<TabItem value="esx" label="ESX">
-
-```lua
--- To-do
-function helloWorld()
-  print('Hello, ESX!')
-end
-```
-
-</TabItem>
-<TabItem value="vrp" label="vRP">
-
-```lua
--- To-do
-function helloWorld()
-  print('Hello, vRP!')
-end
-```
-
-</TabItem>
-</Tabs>
+We often create open-source examples of how to use our resources (with framework support included in the example).
 
 ---
 
@@ -175,7 +66,8 @@ local character = {
 ```lua title="EnterParameters (optional)"
 local parameters = {
   transition = true, -- Enable / disable the transition to the selection screen
-  page = 0, -- The starting page of charaters that will be displayed. Max of 4 characters per page
+  page = 0, -- The starting page of charaters that will be displayed. Max of 4 characters per page,
+  drawCursorSprite = true, -- Draw the game native cursor, disable it if you're using NUI
 }
 ```
 
@@ -233,16 +125,17 @@ Stops selecting and makes the character ped play a flip the bird animation while
 
 `Character` [Character](#character)
 
-`Function` (optional)
+:::caution
+
+As of **v1.2.0**, this export is synchronous. You don't need to pass a callback parameter anymore, simply continue the flow of your code in the next line.
+:::
 
 #### Usage
 
 ```lua
   ---@param character A Character table returned from the onCharacterSelect function
-  ---@param fn A function that is executed when the animation is completed (optional)
-  exports['fivepunch-multicharacter']:flipTheBird(character, function()
-    -- Do something ...
-  end)
+  exports['fivepunch-multicharacter']:flipTheBird(character)
+  -- do something ...
 ```
 
 ### `deleteCharacter()`
