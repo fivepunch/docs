@@ -138,6 +138,22 @@ As of **v1.2.0**, this export is synchronous. You don't need to pass a callback 
   -- do something ...
 ```
 
+### `walkOutOfTheRoom()`
+
+Stops selecting and makes the character walk out of the line up room.
+
+#### Parameters
+
+`Character` [Character](#character)
+
+#### Usage
+
+```lua
+  ---@param character A Character table returned from the onCharacterSelect function
+  exports['fivepunch-multicharacter']:walkOutOfTheRoom(character)
+  -- do something ...
+```
+
 ### `deleteCharacter()`
 
 Removes the specified character from the selection. No animations, just deletes the ped and removes the caracter of the characters table.
