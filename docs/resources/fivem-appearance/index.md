@@ -48,6 +48,7 @@ Since this is a client script, you will need to use **setr** to set these convar
 ```cfg
 setr fivem-appearance:locale "en"
 setr fivem-appearance:automaticFade 1
+setr fivem-appearance:customization 1
 ensure fivem-appearance
 ```
 
